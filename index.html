@@ -26,9 +26,38 @@
         .blue-table {
             background-color: #6464da; /* Blue background for the table */
             color: #ffffff; /* White text color for better contrast */
+            position: relative;
         }
         .blue-table th, .blue-table td {
             border: 1px solid #ffffff; /* White border for the table cells */
+        }
+        .top-bar {
+            position:left;
+            width: 100%;
+            background-color: #ffffff; /* White background color for the bar */
+            color: #000000; /* Text color for contrast */
+            text-align:left;
+            padding: 10px;
+            font-size: 15px;
+            font-weight: bold;
+            /* Blue bottom border for contrast */
+        }
+        .side-bar {
+            position: absolute;
+            top: 0;
+            right: -30px; /* Adjust as needed */
+            width: 20px; /* Width of the side bar */
+            height: 80%;
+            background-color: #6464da; /* Blue background color for the side bar */
+            color: #ffffff; /* Text color */
+            text-align: center;
+            line-height: 1.0;
+            font-size: 15px;
+            font-weight: bold;
+            border-left: 2px solid #ffffff; /* White border for the side bar */
+            transform: rotate(90deg);
+            transform-origin: top left;
+            padding-left: 10px; /* Padding for side bar text */
         }
         .button {
             background-color: #f9fbf9; /* Light background for buttons */
@@ -65,19 +94,50 @@
             font-size: 18px;
             line-height: 1.6;
         }
+        /* Hamburger Button Styles */
+        .hamburger {
+            display: inline-block;
+            cursor: pointer;
+            padding: 5px;
+             /* Blue border for visibility */
+            border-radius: 2px;
+            position: absolute;
+            right: 10px;
+            top: 5px;
+        }
+        .hamburger div {
+            width: 20px;
+            height: 3px;
+            background-color: #000000; /* Blue lines for the hamburger button */
+            margin: 3px 0;
+            transition: all 0.3s ease;
+        }
     </style>
 </head>
 <body>
-    <!-- First Table with "Tickets Marche" -->
-    <table class="blue-table">
-        <tbody>
-            <tr>
-                <td style="text-align: center; font-size: 24px; background-color: #6d6dd0; color: #ffffff;">
-                    Tickets 
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    <!-- Container for Table with Bar and Side Bar -->
+    <div style="position: relative; margin-bottom: 15px;">
+        <div class="top-bar">
+            TICKETSMARCHE
+            <div class="hamburger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        
+
+        <!-- First Table with "Tickets Marche" -->
+        <table class="blue-table">
+            <tbody>
+                <tr>
+                    <td style="text-align: center; font-size: 24px; background-color: #6d6dd0; color: #ffffff;">
+                        Tickets 
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
     
     <!-- Second Table with Buttons -->
     <table>
