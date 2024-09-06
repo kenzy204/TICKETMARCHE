@@ -1,216 +1,528 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+                             
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TICKETSMARCHE</title>
+    <title>Gift Sense</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            background-color: #ffbebe; /* Light Pink Background */
+            font-family: 'Comic Sans MS', cursive, sans-serif; /* Cute and Cool Font */
+            color: #333;
             margin: 0;
+            padding: 0;
+        }
+        header {
+            text-align: center;
             padding: 20px;
-            background-color: #f4f4f4;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
-        th, td {
-            border: 1px solid #dddddd;
-            text-align: left;
-            padding: 10px;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-        .blue-table {
-            background: linear-gradient(to right, #7d9dff, #6a87e7); /* Gradient background for the table */
-            color: #ffffff; /* White text color for better contrast */
-            border-radius: 10px; /* Rounded corners for the table */
-            overflow: hidden; /* Ensure rounded corners apply to contents */
+            background-color: #ffbebe; /* Hot Pink for Header */
+            color: rgb(235, 235, 235);
             position: relative;
         }
-        .blue-table th, .blue-table td {
-            border: none; /* Remove borders for the table cells */
-        }
-        .blue-table td:first-child {
-            background-color: #4e7fe1; /* Darker blue for the left column */
-        }
-        .top-bar {
-            position: left;
-            width: 100%;
-            background-color: #ffffff; /* White background color for the bar */
-            color: #000000; /* Text color for contrast */
-            text-align: left;
-            padding: 10px;
-            font-size: 15px;
-            font-weight: bold;
-        }
-        .side-bar {
-            position: absolute;
-            top: 0;
-            right: -30px; /* Adjust as needed */
-            width: 20px; /* Width of the side bar */
-            height: 80%;
-            background-color: #6464da; /* Blue background color for the side bar */
-            color: #ffffff; /* Text color */
-            text-align: center;
-            line-height: 1.0;
-            font-size: 15px;
-            font-weight: bold;
-            border-left: 2px solid #ffffff; /* White border for the side bar */
-            transform: rotate(90deg);
-            transform-origin: top left;
-            padding-left: 10px; /* Padding for side bar text */
-        }
-        .button {
-            background-color: #f9fbf9; /* Light background for buttons */
-            color: rgb(0, 0, 0);
-            border: none;
-            padding: 10px 20px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 20px;
-            cursor: pointer;
-            border-radius: 4px;
-            transition: background-color 0.3s ease;
-        }
-        .button:hover {
-            background-color: #45a049; /* Darker green on hover */
-        }
-        .active-cell {
-            background-color: #45a049; /* Green background for active cell */
-            color: #ffffff; /* White text color for better contrast */
-        }
-        .active-button {
-            background-color: #45a049; /* Green background for active button */
-            color: #ffffff; /* White text color for better contrast */
-        }
-        #qr-code {
-            display: none; /* Hidden by default */
-            text-align: center;
-            margin-top: 20px;
-        }
-        #qr-container {
-            background-color: #ffffff; /* White background for the QR container */
-            border: 2px solid #dddddd; /* Light grey border */
-            padding: 20px; /* Padding around the QR code and text */
-            border-radius: 10px; /* Rounded corners */
-            display: inline-block; /* Shrink to fit content */
-        }
-        #qr-text {
-            text-align: center;
-            margin-top: 10px;
-            font-size: 18px;
-            line-height: 1.6;
-        }
-        /* Hamburger Button Styles */
         .hamburger {
-            display: inline-block;
-            cursor: pointer;
-            padding: 5px;
-            /* Blue border for visibility */
-            border-radius: 2px;
             position: absolute;
-            right: 10px;
-            top: 5px;
+            top: 20px;
+            left: 20px;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
         }
         .hamburger div {
-            width: 20px;
-            height: 3px;
-            background-color: #000000; /* Blue lines for the hamburger button */
-            margin: 3px 0;
-            transition: all 0.3s ease;
+            width: 100%;
+            height: 4px;
+            background-color: white;
+            margin: 6px 0;
+        }
+        .menu {
+            display: none;
+            position: absolute;
+            top: 60px;
+            left: 20px;
+            background-color: #b7b5b5;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .menu a {
+            color: rgb(11, 11, 11);
+            text-decoration: none;
+            display: block;
+            padding: 5px 0;
+            cursor: pointer;
+        }
+        .cart-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+        }
+        .cart-icon img {
+            width: 100%;
+            height: auto;
+        }
+        .container {
+            padding: 20px;
+            text-align: center;
+            display: none; /* Hide initially */
+        }
+        .product {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px;
+            border: 2px solid #f78cc1;
+            border-radius: 10px;
+            background-color: white;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .product:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .product img {
+            max-width: 100%;
+            border-bottom: 2px solid #f78cc1;
+        }
+        .product h3 {
+            color: #FF69B4;
+        }
+        .product p {
+            margin: 10px 0;
+        }
+        .add-to-cart {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #ff0080;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .add-to-cart:hover {
+            background-color: #FF69B4; /* Light Pink on Hover */
+        }
+        .gender-selection {
+            text-align: center;
+            padding: 20px;
+        }
+        .gender-selection button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #FF69B4;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .gender-selection button:hover {
+            background-color: #FFC0CB; /* Light Pink on Hover */
+        }
+        .cart {
+            position:fixed;
+            top: 50px;
+            right: 10px;
+            width: 1000px;
+            max-height: 1000px;
+            background-color: white;
+            border: 2px solid #f78cc1;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            overflow-y: auto;
+            display: none;
+            z-index: 1000;
+        }
+        .cart h2 {
+            color: #ff0080;
+            text-align: center;
+            margin: 10px 0;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 30px;
+            border-bottom: 1px solid #f78cc1;
+        }
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+        .cart-item p {
+            margin: 0;
+        }
+        .cart-item button {
+            background-color: #ff0080;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.5);
+            padding-top: 60px;
+        }
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 10px;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .size-options {
+            margin-top: 20px;
+        }
+        .size-options button {
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: 2px solid #FF69B4;
+            border-radius: 5px;
+            background-color: white;
+            color: #FF69B4;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .size-options button:hover {
+            background-color: #FF69B4;
+            color: white;
+        }
+        .category {
+            display: inline-block;
+            margin: 10px;
+            cursor: pointer;
+            position: relative; /* To position overlay text correctly */
+        }
+        .category-content {
+            position: relative;
+            display: inline-block;
+        }
+        .category img {
+            border: 2px solid #000000;
+            border-radius: 10px;
+            transition: transform 0.3s, filter 0.3s; /* Added transition for blur effect */
+        }
+        .category img:hover {
+            transform: scale(1.05);
+            filter: blur(5px); /* Apply blur effect */
+        }
+        .overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 5px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .category-content:hover .overlay {
+            opacity: 1;
+        }
+        /* styles.css */
+        .search-form button {
+            padding: 5px 10px;
+            margin-left: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #ff0080;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .search-form button:hover {
+            background-color: #FF69B4;
         }
     </style>
 </head>
 <body>
-    <!-- Container for Table with Bar and Side Bar -->
-    <div style="position: relative; margin-bottom: 15px;">
-        <div class="top-bar">
-            TICKETSMARCHE
-            <div class="hamburger">
-                <div></div>
-                <div></div>
-                <div></div>
+    
+    <header>
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="menu" id="menu">
+            <a onclick="showGenderSelection()">Home</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </div>
+        <form class="search-form" onsubmit="event.preventDefault(); searchProducts();">
+            <input type="text" id="search-input" placeholder="Search products...">
+            <button type="submit">Search</button>
+        </form>
+        <h1>Gift Sense</h1>
+        <div class="cart-icon" onclick="toggleCart()">
+            <img src="C:\Users\Admin\Downloads\black-shopping-cart.jpg" alt="Cart">
+        </div>
+    </header>
+    <div class="gender-selection" id="gender-selection">
+        <p>Please select a category:</p>
+        <div class="category" onclick="showProducts('women')">
+            <div class="category-content">
+                <img src="C:\Users\Admin\Downloads\wom.jpg" alt="Women" width="300" height="350">
+                <div class="overlay">Women</div>
             </div>
         </div>
-        <p style="font-weight: bold;">Order 444356</p>
-
-        <!-- First Table with "Name", "Order Date", "Total Paid", "Tickets" -->
-        <table class="blue-table">
-            <tbody>
-                <tr>
-                    <td>Name</td>
-                    <td>Karim</td>
-                </tr>
-                <tr>
-                    <td>Order Date</td>
-                    <td>Thu 1 Aug</td>
-                </tr>
-                <tr>
-                    <td>Total Paid</td>
-                    <td>0.00</td>
-                </tr>
-                <tr>
-                    <td>Tickets</td>
-                    <td>1</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    
-    <!-- Second Table with Buttons -->
-    <table>
-        <tbody>
-            <tr>
-                <td id="tickets-cell">
-                    <a href="#" class="button" id="tickets-button">Tickets</a>
-                </td>
-                <td>
-                    <a href="#" class="button">Summary</a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-
-    <!-- Container for QR Code -->
-    <div id="qr-code">
-        <div id="qr-container">
-            <img id="qr-image" src="" alt="QR Code">
-            <div id="qr-text">
-               <h3>ANOTR</h3> <br>
-                Thu 1st Aug 2024<br>
-                Standing Invitation<br>
-                <h4>Standing</h4><br>
-                <h4>Standing Invitation</h4><br>
-                8736970863865
+        <div class="category" onclick="showProducts('men')">
+            <div class="category-content">
+                <img src="C:\Users\Admin\Downloads\mal.jpg" alt="Men" width="300" height="345">
+                <div class="overlay">Men</div>
             </div>
+        </div>
+        <div class="category" onclick="showProducts('makeup')">
+            <div class="category-content">
+                <img src="C:\Users\Admin\Downloads\makeup.jpg" alt="Makeup" width="325" height="340">
+                <div class="overlay">Makeup</div>
+            </div>
+        </div>
+        <div class="category" onclick="showProducts('accessories')">
+            <div class="category-content">
+                <img src="C:\Users\Admin\Downloads\OIP (2).jpeg" alt="Accessories" width="300" height="auto">
+                <div class="overlay">Accessories</div>
+            </div>
+        </div>
+    </div>
+    <style>
+        .container { display: flex; gap: 20px; }
+        .product { cursor: pointer; border: 1px solid #ddd; padding: 10px; text-align: center; }
+        .modal { display: none; position: fixed; z-index: 1; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0, 0, 0, 0.4); }
+        .modal-content { background-color: #d8d2d3; margin: 15% auto; padding: 20px; border: 1px solid #888; width: 80%; max-width: 500px; }
+        .close { color: #aaa; float: right; font-size: 28px; font-weight:bolder; }
+        .close:hover, .close:focus { color: black; text-decoration: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="container" id="women-products">
+        <div class="product" onclick="showProductDetails('Nike Shoes', 20, ['6', '7', '8', '9'], 'C:\\Users\\Admin\\Downloads\\R.jpeg')">
+            <img src="C:\\Users\\Admin\\Downloads\\R.jpeg" alt="Nike Shoes" width="300" height="300">
+            <h3>Nike Shoes</h3>
+            <p>Price: $20</p>
+            <button class="add-to-cart" onclick="event.stopPropagation(); addToCart('Nike Shoes', 20)">Add to Cart</button>
+        </div>
+        <div class="product" onclick="showProductDetails('New Balance Shoes', 25, ['7', '8', '9', '10'], 'C:\\Users\\Admin\\Downloads\\R (1).jpeg')">
+            <img src="C:\\Users\\Admin\\Downloads\\R (1).jpeg" alt="New Balance Shoes" width="300" height="290">
+            <h3>New Balance Shoes</h3>
+            <p>Price: $25</p>
+            <button class="add-to-cart" onclick="event.stopPropagation(); addToCart('New Balance Shoes', 25)">Add to Cart</button>
+        </div>
+        <div class="product" onclick="showProductDetails('Campus Adidas Shoes', 25, ['8', '9', '10'], 'C:\\Users\\Admin\\Downloads\\OIP.jpeg')">
+            <img src="C:\\Users\\Admin\\Downloads\\OIP.jpeg" alt="Campus Adidas Shoes" width="300" height="290">
+            <h3>Campus Adidas Shoes</h3>
+            <p>Price: $25</p>
+            <button class="add-to-cart" onclick="event.stopPropagation(); addToCart('Campus Adidas Shoes', 25)">Add to Cart</button>
+        </div>
+    </div>
+
+    <!-- The Modal -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="product-info"></div>
         </div>
     </div>
 
     <script>
-        document.getElementById('tickets-button').addEventListener('click', function(event) {
-            event.preventDefault(); // Prevent default link behavior
-            
-            // Apply active class to the parent <td> and the button itself
-            var ticketsCell = document.getElementById('tickets-cell');
-            var ticketsButton = document.getElementById('tickets-button');
-            
-            ticketsCell.classList.add('active-cell');
-            ticketsButton.classList.add('active-button');
-            
-            // QR code text and URL setup
-            var qrCodeText = "&ME AT SOL BEACH\nFri 26th Jul 2024\nBackstage Standing\nBackstage Standing\n8736970863865";
-            var qrCodeUrl = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + encodeURIComponent(qrCodeText);
-            var qrCodeImage = document.getElementById('qr-image');
-            var qrCodeContainer = document.getElementById('qr-code');
-            
-            qrCodeImage.src = qrCodeUrl;
-            qrCodeContainer.style.display = 'block'; // Show the QR code
-        });
+        function showProductDetails(name, price, sizes, imageUrl) {
+            const productInfo = document.getElementById('product-info');
+            let sizeOptions = sizes.map(size => <option value="${size}">${size}</option>).join('');
+            productInfo.innerHTML = `
+                <img src="${imageUrl}" alt="${name}" width="300" height="300">
+                <h3>${name}</h3>
+                <p>Price: $${price}</p>
+                <label for="sizes">Sizes: </label>
+                <select id="sizes">${sizeOptions}</select>
+                <button class="add-to-cart" onclick="addToCart('${name}', ${price})">Add to Cart</button>
+            `;
+            document.getElementById('productModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('productModal').style.display = 'none';
+        }
+
+        function addToCart(name, price) {
+            alert(${name} added to cart at $${price});
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('productModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
     </script>
+    <div class="container" id="men-products">
+        <h2>Men Products</h2>
+        <!-- Example products -->
+        <div class="product">
+            <img src="C:\Users\Admin\Downloads\men1.jpg" alt="Product 1">
+            <h3>Men's Product 1</h3>
+            <p>Description of Men's Product 1</p>
+            <button class="add-to-cart" onclick="addToCart('Men\'s Product 1')">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="C:\Users\Admin\Downloads\men2.jpg" alt="Product 2">
+            <h3>Men's Product 2</h3>
+            <p>Description of Men's Product 2</p>
+            <button class="add-to-cart" onclick="addToCart('Men\'s Product 2')">Add to Cart</button>
+        </div>
+    </div>
+    <div class="container" id="makeup-products">
+        <h2>Makeup Products</h2>
+        <!-- Example products -->
+        <div class="product">
+            <img src="C:\Users\Admin\Downloads\makeup1.jpg" alt="Product 1">
+            <h3>Makeup Product 1</h3>
+            <p>Description of Makeup Product 1</p>
+            <button class="add-to-cart" onclick="addToCart('Makeup Product 1')">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="C:\Users\Admin\Downloads\makeup2.jpg" alt="Product 2">
+            <h3>Makeup Product 2</h3>
+            <p>Description of Makeup Product 2</p>
+            <button class="add-to-cart" onclick="addToCart('Makeup Product 2')">Add to Cart</button>
+        </div>
+    </div>
+    <div class="container" id="accessories-products">
+        <h2>Accessories Products</h2>
+        <!-- Example products -->
+        <div class="product">
+            <img src="C:\Users\Admin\Downloads\accessories1.jpg" alt="Product 1">
+            <h3>Accessories Product 1</h3>
+            <p>Description of Accessories Product 1</p>
+            <button class="add-to-cart" onclick="addToCart('Accessories Product 1')">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="C:\Users\Admin\Downloads\accessories2.jpg" alt="Product 2">
+            <h3>Accessories Product 2</h3>
+            <p>Description of Accessories Product 2</p>
+            <button class="add-to-cart" onclick="addToCart('Accessories Product 2')">Add to Cart</button>
+        </div>
+    </div>
+    <div class="cart" id="cart">
+        <h2>Shopping Cart</h2>
+        <div id="cart-items"></div>
+    </div>
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+    
+        function showGenderSelection() {
+            document.getElementById('gender-selection').style.display = 'block';
+            document.getElementById('women-products').style.display = 'none';
+            document.getElementById('men-products').style.display = 'none';
+            document.getElementById('makeup-products').style.display = 'none';
+            document.getElementById('accessories-products').style.display = 'none';
+        }
+    
+        function showProducts(category) {
+            document.getElementById('gender-selection').style.display = 'none';
+            document.getElementById('women-products').style.display = 'none';
+            document.getElementById('men-products').style.display = 'none';
+            document.getElementById('makeup-products').style.display = 'none';
+            document.getElementById('accessories-products').style.display = 'none';
+    
+            if (category === 'women') {
+                document.getElementById('women-products').style.display = 'block';
+            } else if (category === 'men') {
+                document.getElementById('men-products').style.display = 'block';
+            } else if (category === 'makeup') {
+                document.getElementById('makeup-products').style.display = 'block';
+            } else if (category === 'accessories') {
+                document.getElementById('accessories-products').style.display = 'block';
+            }
+        }
+    
+        function toggleCart() {
+            const cart = document.getElementById('cart');
+            cart.style.display = cart.style.display === 'block' ? 'none' : 'block';
+        }
+    
+        function showProductDetails(name, price, sizes, imageUrl) {
+            const productInfo = document.getElementById('product-info');
+            let sizeOptions = sizes.map(size => <option value="${size}">${size}</option>).join('');
+            productInfo.innerHTML = `
+                <img src="${imageUrl}" alt="${name}" width="300" height="300">
+                <h3>${name}</h3>
+                <p>Price: $${price}</p>
+                <label for="sizes">Sizes: </label>
+                <select id="sizes">${sizeOptions}</select>
+                <label for="quantity">Quantity: </label>
+                <input type="number" id="quantity" name="quantity" value="1" min="1">
+                <button class="add-to-cart" onclick="addToCart('${name}', ${price}, '${imageUrl}', document.getElementById('sizes').value, document.getElementById('quantity').value)">Add to Cart</button>
+            `;
+            document.getElementById('productModal').style.display = 'block';
+        }
+    
+        function addToCart(product, price, imageUrl, size, quantity) {
+            const cartItems = document.getElementById('cart-items');
+            const item = document.createElement('div');
+            item.classList.add('cart-item');
+            item.innerHTML = `
+                <img src="${imageUrl}" alt="${product}" width="50" height="50">
+                <p>${product}</p>
+                <p>Price: $${price}</p>
+                <p>Size: ${size}</p>
+                <p>Quantity: ${quantity}</p>
+                <button onclick="removeFromCart(this)">Remove</button>
+            `;
+            cartItems.appendChild(item);
+            alert('The product was added to the cart successfully.');
+        }
+    
+        function removeFromCart(button) {
+            const cartItems = document.getElementById('cart-items');
+            cartItems.removeChild(button.parentElement);
+        }
+    
+        function closeModal() {
+            document.getElementById('productModal').style.display = 'none';
+        }
+    
+        // Initialize
+        showGenderSelection();
+        
+
+
+    </script>
+    
+    
+ 
 </body>
 </html>
