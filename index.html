@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-                             
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gift Sense</title>
@@ -18,7 +16,7 @@
             text-align: center;
             padding: 20px;
             background-color: #ffbebe; /* Hot Pink for Header */
-            color: rgb(235, 235, 235);
+            color: rgb(255, 255, 255);
             position: relative;
         }
         .hamburger {
@@ -125,9 +123,9 @@
         }
         .cart {
             position:fixed;
-            top: 50px;
+            top: 70px;
             right: 10px;
-            width: 1000px;
+            width: 400px;
             max-height: 1000px;
             background-color: white;
             border: 2px solid #f78cc1;
@@ -145,7 +143,7 @@
         .cart-item {
             display: flex;
             justify-content: space-between;
-            padding: 30px;
+            padding: 10px;
             border-bottom: 1px solid #f78cc1;
         }
         .cart-item:last-child {
@@ -250,25 +248,9 @@
         .category-content:hover .overlay {
             opacity: 1;
         }
-        /* styles.css */
-        .search-form button {
-            padding: 5px 10px;
-            margin-left: 10px;
-            font-size: 16px;
-            border: none;
-            border-radius: 5px;
-            background-color: #ff0080;
-            color: white;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .search-form button:hover {
-            background-color: #FF69B4;
-        }
     </style>
 </head>
 <body>
-    
     <header>
         <div class="hamburger" onclick="toggleMenu()">
             <div></div>
@@ -280,38 +262,34 @@
             <a href="#">About</a>
             <a href="#">Contact</a>
         </div>
-        <form class="search-form" onsubmit="event.preventDefault(); searchProducts();">
-            <input type="text" id="search-input" placeholder="Search products...">
-            <button type="submit">Search</button>
-        </form>
         <h1>Gift Sense</h1>
         <div class="cart-icon" onclick="toggleCart()">
-            <img src="C:\Users\Admin\Downloads\black-shopping-cart.jpg" alt="Cart">
+            <img src="black-shopping-cart.jpg" alt="Cart">
         </div>
     </header>
     <div class="gender-selection" id="gender-selection">
         <p>Please select a category:</p>
         <div class="category" onclick="showProducts('women')">
             <div class="category-content">
-                <img src="C:\Users\Admin\Downloads\wom.jpg" alt="Women" width="300" height="350">
+                <img src="wom.jpg" alt="Women" width="300" height="350">
                 <div class="overlay">Women</div>
             </div>
         </div>
         <div class="category" onclick="showProducts('men')">
             <div class="category-content">
-                <img src="C:\Users\Admin\Downloads\mal.jpg" alt="Men" width="300" height="345">
+                <img src="mal.jpg" alt="Men" width="300" height="345">
                 <div class="overlay">Men</div>
             </div>
         </div>
         <div class="category" onclick="showProducts('makeup')">
             <div class="category-content">
-                <img src="C:\Users\Admin\Downloads\makeup.jpg" alt="Makeup" width="325" height="340">
+                <img src="makeup.jpg" alt="Makeup" width="325" height="340">
                 <div class="overlay">Makeup</div>
             </div>
         </div>
         <div class="category" onclick="showProducts('accessories')">
             <div class="category-content">
-                <img src="C:\Users\Admin\Downloads\OIP (2).jpeg" alt="Accessories" width="300" height="auto">
+                <img src="OIP (2).jpeg" alt="Accessories" width="300" height="auto">
                 <div class="overlay">Accessories</div>
             </div>
         </div>
@@ -327,20 +305,20 @@
 </head>
 <body>
     <div class="container" id="women-products">
-        <div class="product" onclick="showProductDetails('Nike Shoes', 20, ['6', '7', '8', '9'], 'C:\\Users\\Admin\\Downloads\\R.jpeg')">
-            <img src="C:\\Users\\Admin\\Downloads\\R.jpeg" alt="Nike Shoes" width="300" height="300">
+        <div class="product" onclick="showProductDetails('Nike Shoes', 20, ['6', '7', '8', '9'], 'R.jpeg')">
+            <img src="R.jpeg" alt="Nike Shoes" width="300" height="300">
             <h3>Nike Shoes</h3>
             <p>Price: $20</p>
             <button class="add-to-cart" onclick="event.stopPropagation(); addToCart('Nike Shoes', 20)">Add to Cart</button>
         </div>
-        <div class="product" onclick="showProductDetails('New Balance Shoes', 25, ['7', '8', '9', '10'], 'C:\\Users\\Admin\\Downloads\\R (1).jpeg')">
-            <img src="C:\\Users\\Admin\\Downloads\\R (1).jpeg" alt="New Balance Shoes" width="300" height="290">
+        <div class="product" onclick="showProductDetails('New Balance Shoes', 25, ['7', '8', '9', '10'], 'R (1).jpeg')">
+            <img src="R (1).jpeg" alt="New Balance Shoes" width="300" height="290">
             <h3>New Balance Shoes</h3>
             <p>Price: $25</p>
             <button class="add-to-cart" onclick="event.stopPropagation(); addToCart('New Balance Shoes', 25)">Add to Cart</button>
         </div>
-        <div class="product" onclick="showProductDetails('Campus Adidas Shoes', 25, ['8', '9', '10'], 'C:\\Users\\Admin\\Downloads\\OIP.jpeg')">
-            <img src="C:\\Users\\Admin\\Downloads\\OIP.jpeg" alt="Campus Adidas Shoes" width="300" height="290">
+        <div class="product" onclick="showProductDetails('Campus Adidas Shoes', 25, ['8', '9', '10'], 'OIP.jpeg')">
+            <img src="OIP.jpeg" alt="Campus Adidas Shoes" width="300" height="290">
             <h3>Campus Adidas Shoes</h3>
             <p>Price: $25</p>
             <button class="add-to-cart" onclick="event.stopPropagation(); addToCart('Campus Adidas Shoes', 25)">Add to Cart</button>
@@ -517,12 +495,6 @@
     
         // Initialize
         showGenderSelection();
-        
-
-
     </script>
-    
-    
- 
 </body>
 </html>
