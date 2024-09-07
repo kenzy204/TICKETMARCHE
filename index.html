@@ -6,8 +6,8 @@
     <title>Gift Sense</title>
     <style>
         body {
-            background-color: #ffbebe; /* Light Pink Background */
-            font-family: 'Comic Sans MS', cursive, sans-serif; /* Cute and Cool Font */
+            background-color: #ffbebe;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
             color: #333;
             margin: 0;
             padding: 0;
@@ -15,7 +15,7 @@
         header {
             text-align: center;
             padding: 20px;
-            background-color: #ffbebe; /* Hot Pink for Header */
+            background-color: #ffbebe;
             color: rgb(255, 255, 255);
             position: relative;
         }
@@ -64,7 +64,7 @@
         .container {
             padding: 20px;
             text-align: center;
-            display: none; /* Hide initially */
+            display: none;
         }
         .product {
             display: inline-block;
@@ -101,122 +101,17 @@
             transition: background-color 0.3s;
         }
         .add-to-cart:hover {
-            background-color: #FF69B4; /* Light Pink on Hover */
+            background-color: #FF69B4;
         }
         .gender-selection {
             text-align: center;
             padding: 20px;
         }
-        .gender-selection button {
-            margin: 10px;
-            padding: 10px 20px;
-            font-size: 16px;
-            border: none;
-            border-radius: 5px;
-            background-color: #FF69B4;
-            color: white;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .gender-selection button:hover {
-            background-color: #FFC0CB; /* Light Pink on Hover */
-        }
-        .cart {
-            position:fixed;
-            top: 70px;
-            right: 10px;
-            width: 400px;
-            max-height: 1000px;
-            background-color: white;
-            border: 2px solid #f78cc1;
-            border-radius: 10px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            overflow-y: auto;
-            display: none;
-            z-index: 1000;
-        }
-        .cart h2 {
-            color: #ff0080;
-            text-align: center;
-            margin: 10px 0;
-        }
-        .cart-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 10px;
-            border-bottom: 1px solid #f78cc1;
-        }
-        .cart-item:last-child {
-            border-bottom: none;
-        }
-        .cart-item p {
-            margin: 0;
-        }
-        .cart-item button {
-            background-color: #ff0080;
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-        /* Modal Styles */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.5);
-            padding-top: 60px;
-        }
-        .modal-content {
-            background-color: white;
-            margin: 5% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-            max-width: 600px;
-            border-radius: 10px;
-        }
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
-        .size-options {
-            margin-top: 20px;
-        }
-        .size-options button {
-            margin: 5px;
-            padding: 10px 20px;
-            font-size: 16px;
-            border: 2px solid #FF69B4;
-            border-radius: 5px;
-            background-color: white;
-            color: #FF69B4;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .size-options button:hover {
-            background-color: #FF69B4;
-            color: white;
-        }
         .category {
             display: inline-block;
             margin: 10px;
             cursor: pointer;
-            position: relative; /* To position overlay text correctly */
+            position: relative;
         }
         .category-content {
             position: relative;
@@ -225,11 +120,11 @@
         .category img {
             border: 2px solid #000000;
             border-radius: 10px;
-            transition: transform 0.3s, filter 0.3s; /* Added transition for blur effect */
+            transition: transform 0.3s, filter 0.3s;
         }
         .category img:hover {
             transform: scale(1.05);
-            filter: blur(5px); /* Apply blur effect */
+            filter: blur(5px);
         }
         .overlay {
             position: absolute;
@@ -247,6 +142,17 @@
         }
         .category-content:hover .overlay {
             opacity: 1;
+        }
+        .cart {
+            position: fixed;
+            top: 70px;
+            right: 10px;
+            width: 400px;
+            background-color: white;
+            border: 2px solid #f78cc1;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            display: none;
         }
     </style>
 </head>
@@ -267,6 +173,7 @@
             <img src="black-shopping-cart.jpg" alt="Cart">
         </div>
     </header>
+
     <div class="gender-selection" id="gender-selection">
         <p>Please select a category:</p>
         <div class="category" onclick="showProducts('women')">
@@ -294,16 +201,7 @@
             </div>
         </div>
     </div>
-    <style>
-        .container { display: flex; gap: 20px; }
-        .product { cursor: pointer; border: 1px solid #ddd; padding: 10px; text-align: center; }
-        .modal { display: none; position: fixed; z-index: 1; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0, 0, 0, 0.4); }
-        .modal-content { background-color: #d8d2d3; margin: 15% auto; padding: 20px; border: 1px solid #888; width: 80%; max-width: 500px; }
-        .close { color: #aaa; float: right; font-size: 28px; font-weight:bolder; }
-        .close:hover, .close:focus { color: black; text-decoration: none; cursor: pointer; }
-    </style>
-</head>
-<body>
+
     <div class="container" id="women-products">
         <div class="product" onclick="showProductDetails('Nike Shoes', 20, ['6', '7', '8', '9'], 'R.jpeg')">
             <img src="R.jpeg" alt="Nike Shoes" width="300" height="300">
@@ -311,199 +209,70 @@
             <p>Price: $20</p>
             <button class="add-to-cart" onclick="event.stopPropagation(); addToCart('Nike Shoes', 20)">Add to Cart</button>
         </div>
+        <!-- Add more products as needed -->
+    </div>
+
+    <div class="container" id="men-products">
         <div class="product" onclick="showProductDetails('New Balance Shoes', 25, ['7', '8', '9', '10'], 'R (1).jpeg')">
             <img src="R (1).jpeg" alt="New Balance Shoes" width="300" height="290">
             <h3>New Balance Shoes</h3>
             <p>Price: $25</p>
             <button class="add-to-cart" onclick="event.stopPropagation(); addToCart('New Balance Shoes', 25)">Add to Cart</button>
         </div>
-        <div class="product" onclick="showProductDetails('Campus Adidas Shoes', 25, ['8', '9', '10'], 'OIP.jpeg')">
-            <img src="OIP.jpeg" alt="Campus Adidas Shoes" width="300" height="290">
-            <h3>Campus Adidas Shoes</h3>
-            <p>Price: $25</p>
-            <button class="add-to-cart" onclick="event.stopPropagation(); addToCart('Campus Adidas Shoes', 25)">Add to Cart</button>
-        </div>
+        <!-- Add more products as needed -->
     </div>
 
-    <!-- The Modal -->
-    <div id="productModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <div id="product-info"></div>
-        </div>
-    </div>
-
-    <script>
-        function showProductDetails(name, price, sizes, imageUrl) {
-            const productInfo = document.getElementById('product-info');
-            let sizeOptions = sizes.map(size => <option value="${size}">${size}</option>).join('');
-            productInfo.innerHTML = `
-                <img src="${imageUrl}" alt="${name}" width="300" height="300">
-                <h3>${name}</h3>
-                <p>Price: $${price}</p>
-                <label for="sizes">Sizes: </label>
-                <select id="sizes">${sizeOptions}</select>
-                <button class="add-to-cart" onclick="addToCart('${name}', ${price})">Add to Cart</button>
-            `;
-            document.getElementById('productModal').style.display = 'block';
-        }
-
-        function closeModal() {
-            document.getElementById('productModal').style.display = 'none';
-        }
-
-        function addToCart(name, price) {
-            alert(${name} added to cart at $${price});
-        }
-
-        window.onclick = function(event) {
-            const modal = document.getElementById('productModal');
-            if (event.target === modal) {
-                modal.style.display = 'none';
-            }
-        }
-    </script>
-    <div class="container" id="men-products">
-        <h2>Men Products</h2>
-        <!-- Example products -->
-        <div class="product">
-            <img src="C:\Users\Admin\Downloads\men1.jpg" alt="Product 1">
-            <h3>Men's Product 1</h3>
-            <p>Description of Men's Product 1</p>
-            <button class="add-to-cart" onclick="addToCart('Men\'s Product 1')">Add to Cart</button>
-        </div>
-        <div class="product">
-            <img src="C:\Users\Admin\Downloads\men2.jpg" alt="Product 2">
-            <h3>Men's Product 2</h3>
-            <p>Description of Men's Product 2</p>
-            <button class="add-to-cart" onclick="addToCart('Men\'s Product 2')">Add to Cart</button>
-        </div>
-    </div>
     <div class="container" id="makeup-products">
-        <h2>Makeup Products</h2>
-        <!-- Example products -->
-        <div class="product">
-            <img src="C:\Users\Admin\Downloads\makeup1.jpg" alt="Product 1">
-            <h3>Makeup Product 1</h3>
-            <p>Description of Makeup Product 1</p>
-            <button class="add-to-cart" onclick="addToCart('Makeup Product 1')">Add to Cart</button>
+        <div class="product" onclick="showProductDetails('Lipstick', 15, ['Small', 'Medium', 'Large'], 'makeup1.jpg')">
+            <img src="makeup1.jpg" alt="Lipstick" width="300" height="300">
+            <h3>Lipstick</h3>
+            <p>Price: $15</p>
+            <button class="add-to-cart" onclick="event.stopPropagation(); addToCart('Lipstick', 15)">Add to Cart</button>
         </div>
-        <div class="product">
-            <img src="C:\Users\Admin\Downloads\makeup2.jpg" alt="Product 2">
-            <h3>Makeup Product 2</h3>
-            <p>Description of Makeup Product 2</p>
-            <button class="add-to-cart" onclick="addToCart('Makeup Product 2')">Add to Cart</button>
-        </div>
+        <!-- Add more products as needed -->
     </div>
+
     <div class="container" id="accessories-products">
-        <h2>Accessories Products</h2>
-        <!-- Example products -->
-        <div class="product">
-            <img src="C:\Users\Admin\Downloads\accessories1.jpg" alt="Product 1">
-            <h3>Accessories Product 1</h3>
-            <p>Description of Accessories Product 1</p>
-            <button class="add-to-cart" onclick="addToCart('Accessories Product 1')">Add to Cart</button>
+        <div class="product" onclick="showProductDetails('Bracelet', 10, ['One Size'], 'bracelet.jpg')">
+            <img src="bracelet.jpg" alt="Bracelet" width="300" height="300">
+            <h3>Bracelet</h3>
+            <p>Price: $10</p>
+            <button class="add-to-cart" onclick="event.stopPropagation(); addToCart('Bracelet', 10)">Add to Cart</button>
         </div>
-        <div class="product">
-            <img src="C:\Users\Admin\Downloads\accessories2.jpg" alt="Product 2">
-            <h3>Accessories Product 2</h3>
-            <p>Description of Accessories Product 2</p>
-            <button class="add-to-cart" onclick="addToCart('Accessories Product 2')">Add to Cart</button>
-        </div>
+        <!-- Add more products as needed -->
     </div>
-    <div class="cart" id="cart">
-        <h2>Shopping Cart</h2>
-        <div id="cart-items"></div>
-    </div>
-<div id="modal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <h2>Select Gender</h2>
-            <button onclick="showProducts('women')">Women</button>
-            <button onclick="showProducts('men')">Men</button>
-            <button onclick="showProducts('makeup')">Makeup</button>
-        </div>
-    </div>
+
     <script>
         function toggleMenu() {
             const menu = document.getElementById('menu');
             menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
         }
-    
-        function showGenderSelection() {
-            document.getElementById('gender-selection').style.display = 'block';
-            document.getElementById('women-products').style.display = 'none';
-            document.getElementById('men-products').style.display = 'none';
-            document.getElementById('makeup-products').style.display = 'none';
-            document.getElementById('accessories-products').style.display = 'none';
-        }
-    
-        function showProducts(category) {
-            document.getElementById('gender-selection').style.display = 'none';
-            document.getElementById('women-products').style.display = 'none';
-            document.getElementById('men-products').style.display = 'none';
-            document.getElementById('makeup-products').style.display = 'none';
-            document.getElementById('accessories-products').style.display = 'none';
-    
-            if (category === 'women') {
-                document.getElementById('women-products').style.display = 'block';
-            } else if (category === 'men') {
-                document.getElementById('men-products').style.display = 'block';
-            } else if (category === 'makeup') {
-                document.getElementById('makeup-products').style.display = 'block';
-            } else if (category === 'accessories') {
-                document.getElementById('accessories-products').style.display = 'block';
-            }
-        }
-    
+
         function toggleCart() {
             const cart = document.getElementById('cart');
             cart.style.display = cart.style.display === 'block' ? 'none' : 'block';
         }
-    
-        function showProductDetails(name, price, sizes, imageUrl) {
-            const productInfo = document.getElementById('product-info');
-            let sizeOptions = sizes.map(size => <option value="${size}">${size}</option>).join('');
-            productInfo.innerHTML = `
-                <img src="${imageUrl}" alt="${name}" width="300" height="300">
-                <h3>${name}</h3>
-                <p>Price: $${price}</p>
-                <label for="sizes">Sizes: </label>
-                <select id="sizes">${sizeOptions}</select>
-                <label for="quantity">Quantity: </label>
-                <input type="number" id="quantity" name="quantity" value="1" min="1">
-                <button class="add-to-cart" onclick="addToCart('${name}', ${price}, '${imageUrl}', document.getElementById('sizes').value, document.getElementById('quantity').value)">Add to Cart</button>
-            `;
-            document.getElementById('productModal').style.display = 'block';
+
+        function showGenderSelection() {
+            document.getElementById('gender-selection').style.display = 'block';
+            document.querySelectorAll('.container').forEach(el => el.style.display = 'none');
         }
-    
-        function addToCart(product, price, imageUrl, size, quantity) {
-            const cartItems = document.getElementById('cart-items');
-            const item = document.createElement('div');
-            item.classList.add('cart-item');
-            item.innerHTML = `
-                <img src="${imageUrl}" alt="${product}" width="50" height="50">
-                <p>${product}</p>
-                <p>Price: $${price}</p>
-                <p>Size: ${size}</p>
-                <p>Quantity: ${quantity}</p>
-                <button onclick="removeFromCart(this)">Remove</button>
-            `;
-            cartItems.appendChild(item);
-            alert('The product was added to the cart successfully.');
+
+        function showProducts(category) {
+            document.getElementById('gender-selection').style.display = 'none';
+            document.querySelectorAll('.container').forEach(el => el.style.display = 'none');
+            document.getElementById(`${category}-products`).style.display = 'block';
         }
-    
-        function removeFromCart(button) {
-            const cartItems = document.getElementById('cart-items');
-            cartItems.removeChild(button.parentElement);
+
+        function showProductDetails(productName, price, sizes, imageUrl) {
+            // Functionality for product details can be implemented here
+            alert('Product: ' + productName + '\nPrice: $' + price);
         }
-    
-        function closeModal() {
-            document.getElementById('productModal').style.display = 'none';
+
+        function addToCart(productName, price) {
+            // Add product to cart functionality can be implemented here
+            alert(productName + ' has been added to your cart.');
         }
-    
-        // Initialize
-        showGenderSelection();
     </script>
 </body>
 </html>
