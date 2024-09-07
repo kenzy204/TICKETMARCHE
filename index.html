@@ -415,6 +415,15 @@
         <h2>Shopping Cart</h2>
         <div id="cart-items"></div>
     </div>
+<div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Select Gender</h2>
+            <button onclick="showProducts('women')">Women</button>
+            <button onclick="showProducts('men')">Men</button>
+            <button onclick="showProducts('makeup')">Makeup</button>
+        </div>
+    </div>
     <script>
         function toggleMenu() {
             const menu = document.getElementById('menu');
